@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://8xy2olvosvkt"]
+
+[ext_resource type="Script" uid="uid://bgh8q1vb4uop" path="res://name_tag.gd" id="1_06bma"]
+
+[node name="NameTag" type="RichTextLabel" unique_id=2044002101]
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+autowrap_mode = 2
+script = ExtResource("1_06bma")

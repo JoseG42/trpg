@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://be4tt0cpddd1y"]
+
+[ext_resource type="Texture2D" uid="uid://dwwl6shg77gq8" path="res://assets/Soldier-Idle.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://u8olljp1imyb" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://dl8r2vwm2otcd" path="res://mass.gd" id="3_ejohg"]
+[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://name_tag.tscn" id="4_qbdof"]
+[ext_resource type="PackedScene" uid="uid://cpx3dkxirf61e" path="res://abilities_list.tscn" id="5_hg0js"]
+[ext_resource type="PackedScene" uid="uid://31f7y2pxpw63" path="res://nodes/Verbs/scream.tscn" id="6_4n5g4"]
+[ext_resource type="PackedScene" uid="uid://dw04cmbiamo1h" path="res://nodes/Verbs/spin.tscn" id="7_5m3aa"]
+[ext_resource type="PackedScene" uid="uid://bbdjh4rmgp43s" path="res://nodes/Verbs/verb.tscn" id="8_gggum"]
+[ext_resource type="PackedScene" uid="uid://cedvi5t1jhol8" path="res://slash.tscn" id="9_qbdof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(40, 33, 20, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(140, 33, 20, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(240, 33, 20, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(340, 33, 20, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(440, 33, 20, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(540, 33, 20, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dw050"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bms3g"]
+size = Vector2(17, 18.8)
+
+[node name="Player" type="Area2D" unique_id=551660105 node_paths=PackedStringArray("ab_l", "mass", "nametag")]
+script = ExtResource("1_onrkg")
+level = 10
+dexterity = 9
+perception = 10
+intelligence = 7
+charisma = 6
+strength = 10
+ab_l = NodePath("AbilitiesList")
+max_health = 100
+faith = Color(2.887845e-06, 0.84105843, 0.6706095, 1)
+description = "A common soldier"
+mass = NodePath("Mass")
+nametag = NodePath("NameTag")
+metadata/_custom_type_script = "uid://dxyg4jq4bnnxw"
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1919633912]
+sprite_frames = SubResource("SpriteFrames_dw050")
+
+[node name="Mass" type="CollisionShape2D" parent="." unique_id=740181530 node_paths=PackedStringArray("noun")]
+position = Vector2(-1.5, -1.6000001)
+shape = SubResource("RectangleShape2D_bms3g")
+script = ExtResource("3_ejohg")
+weight = 100
+endurance = 8
+noun = NodePath("..")
+metadata/_custom_type_script = "uid://dl8r2vwm2otcd"
+
+[node name="NameTag" parent="." unique_id=2044002101 node_paths=PackedStringArray("noun") instance=ExtResource("4_qbdof")]
+noun = NodePath("..")
+
+[node name="AbilitiesList" parent="." unique_id=733165265 node_paths=PackedStringArray("subject") instance=ExtResource("5_hg0js")]
+subject = NodePath("..")
+
+[node name="Scream" parent="AbilitiesList" unique_id=1563960661 instance=ExtResource("6_4n5g4")]
+layout_mode = 2
+
+[node name="Spin" parent="AbilitiesList" unique_id=1837355744 instance=ExtResource("7_5m3aa")]
+layout_mode = 2
+
+[node name="Verb" parent="AbilitiesList" unique_id=867970473 instance=ExtResource("8_gggum")]
+layout_mode = 2
+
+[node name="Slash" parent="AbilitiesList" unique_id=1171220841 groups=["Verbs"] instance=ExtResource("9_qbdof")]
+layout_mode = 2

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://buv54ujfw54xo"]
+
+[ext_resource type="Script" uid="uid://dl8r2vwm2otcd" path="res://mass.gd" id="1_ltavo"]
+
+[node name="Mass" type="CollisionShape2D" unique_id=671160666]
+script = ExtResource("1_ltavo")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ddyg1yohaaq0a"]
+
+[ext_resource type="Script" uid="uid://dxyg4jq4bnnxw" path="res://noun.gd" id="1_awayx"]
+
+[node name="Noun" type="Area2D" unique_id=2064846846]
+script = ExtResource("1_awayx")
+max_health = 62
+description = "A noun refers to an entity."

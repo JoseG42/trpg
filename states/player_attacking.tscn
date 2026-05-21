@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://wfy17j3ne4ot"]
+
+[sub_resource type="GDScript" id="GDScript_hhovn"]
+script/source = "extends State
+"
+
+[node name="PlayerAttacking" type="Node" unique_id=1999869163]
+script = SubResource("GDScript_hhovn")
+metadata/_custom_type_script = "uid://co3sysdbat4jm"

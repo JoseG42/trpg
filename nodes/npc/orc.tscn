@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://mdwvhli1wg2h"]
+
+[ext_resource type="Script" uid="uid://cwnnegqw6jmds" path="res://orc.gd" id="1_vumo0"]
+[ext_resource type="PackedScene" uid="uid://buv54ujfw54xo" path="res://mass.tscn" id="2_31h1d"]
+[ext_resource type="Texture2D" uid="uid://cffklewm1p4sy" path="res://assets/Orc-Idle.png" id="2_dfwqp"]
+[ext_resource type="PackedScene" uid="uid://cpx3dkxirf61e" path="res://abilities_list.tscn" id="3_dfwqp"]
+[ext_resource type="PackedScene" uid="uid://dw04cmbiamo1h" path="res://nodes/Verbs/spin.tscn" id="4_d22v1"]
+[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://name_tag.tscn" id="4_dfwqp"]
+[ext_resource type="PackedScene" uid="uid://bbdjh4rmgp43s" path="res://nodes/Verbs/verb.tscn" id="5_wpvyt"]
+[ext_resource type="PackedScene" uid="uid://31f7y2pxpw63" path="res://nodes/Verbs/scream.tscn" id="8_d22v1"]
+[ext_resource type="PackedScene" uid="uid://jbh11ttf2mld" path="res://states/State.tscn" id="9_j3i5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d22v1"]
+atlas = ExtResource("2_dfwqp")
+region = Rect2(40, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpvyt"]
+atlas = ExtResource("2_dfwqp")
+region = Rect2(140, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5atpf"]
+atlas = ExtResource("2_dfwqp")
+region = Rect2(240, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elqaq"]
+atlas = ExtResource("2_dfwqp")
+region = Rect2(340, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo07l"]
+atlas = ExtResource("2_dfwqp")
+region = Rect2(440, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgjqm"]
+atlas = ExtResource("2_dfwqp")
+region = Rect2(540, 33, 28, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yo35u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d22v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpvyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5atpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elqaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo07l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgjqm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31h1d"]
+size = Vector2(22.7, 16)
+
+[node name="Orc" type="Area2D" unique_id=1312671094 node_paths=PackedStringArray("ab_l", "initial_state", "mass", "nametag")]
+script = ExtResource("1_vumo0")
+level = 8
+dexterity = 8
+perception = 10
+intelligence = 5
+charisma = 6
+strength = 9
+ab_l = NodePath("AbilitiesList")
+initial_state = NodePath("State")
+max_health = 80
+faith = Color(0.047058824, 0.3254902, 0.09019608, 1)
+description = "A young orc"
+mass = NodePath("Mass")
+nametag = NodePath("NameTag")
+metadata/_custom_type_script = "uid://dv284rlpavqpi"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1002002035]
+sprite_frames = SubResource("SpriteFrames_yo35u")
+animation = &"idle"
+
+[node name="Mass" parent="." unique_id=671160666 node_paths=PackedStringArray("noun") instance=ExtResource("2_31h1d")]
+position = Vector2(1, -0.2)
+shape = SubResource("RectangleShape2D_31h1d")
+weight = 100
+endurance = 7
+noun = NodePath("..")
+
+[node name="NameTag" parent="." unique_id=2044002101 node_paths=PackedStringArray("noun") instance=ExtResource("4_dfwqp")]
+noun = NodePath("..")
+
+[node name="AbilitiesList" parent="." unique_id=733165265 node_paths=PackedStringArray("subject") instance=ExtResource("3_dfwqp")]
+subject = NodePath("..")
+
+[node name="Spin" parent="AbilitiesList" unique_id=1837355744 instance=ExtResource("4_d22v1")]
+layout_mode = 2
+
+[node name="Verb" parent="AbilitiesList" unique_id=867970473 instance=ExtResource("5_wpvyt")]
+layout_mode = 2
+
+[node name="Scream" parent="AbilitiesList" unique_id=1563960661 instance=ExtResource("8_d22v1")]
+layout_mode = 2
+
+[node name="State" parent="." unique_id=291457834 instance=ExtResource("9_j3i5b")]

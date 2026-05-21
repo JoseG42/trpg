@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://31f7y2pxpw63"]
+
+[ext_resource type="Script" uid="uid://bf16cp238e1dy" path="res://scream.gd" id="1_itvf6"]
+
+[node name="Scream" type="RichTextLabel" unique_id=1563960661 groups=["Verbs"]]
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+script = ExtResource("1_itvf6")
+priority = 2
+duration = 1
+level = 1
+faith = Color(0.78039217, 0.25882354, 0.22745098, 1)
+metadata/_custom_type_script = "uid://biqmsnn7etwir"

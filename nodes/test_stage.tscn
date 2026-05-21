@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://o8ftfk8ye6f2"]
+
+[ext_resource type="Script" uid="uid://c1lerw324p0dy" path="res://scripts/test_stage.gd" id="1_qbgws"]
+[ext_resource type="PackedScene" uid="uid://8g6xassmp46t" path="res://nodes/command_input.tscn" id="1_uww70"]
+[ext_resource type="PackedScene" uid="uid://be4tt0cpddd1y" path="res://nodes/player.tscn" id="1_vwyws"]
+[ext_resource type="PackedScene" uid="uid://mdwvhli1wg2h" path="res://nodes/npc/orc.tscn" id="4_jht37"]
+
+[node name="TestStage" type="TileMapLayer" unique_id=1231207703 node_paths=PackedStringArray("player", "command")]
+script = ExtResource("1_qbgws")
+player = NodePath("Player")
+command = NodePath("CommandInput")
+metadata/_custom_type_script = "uid://do41y1nr80iw2"
+
+[node name="CommandInput" parent="." unique_id=1683471982 node_paths=PackedStringArray("stage") instance=ExtResource("1_uww70")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 583.0
+offset_bottom = 360.0
+grow_horizontal = 1
+grow_vertical = 1
+stage = NodePath("..")
+
+[node name="Orc" parent="." unique_id=1312671094 groups=["npc"] instance=ExtResource("4_jht37")]
+position = Vector2(225, 115)
+
+[node name="Player" parent="." unique_id=551660105 instance=ExtResource("1_vwyws")]
+position = Vector2(332, 113)
+
+[connection signal="execute" from="CommandInput" to="." method="_on_command_input_execute"]
+[connection signal="orange" from="CommandInput" to="." method="_on_command_input_orange"]
