@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://0b2egnur4r3f"]
+
+[ext_resource type="Script" uid="uid://p86w2c518sil" path="res://scripts/save.gd" id="1_psbqm"]
+
+[node name="Save" type="RichTextLabel" unique_id=1775835482]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_psbqm")
+metadata/_custom_type_script = "uid://biqmsnn7etwir"

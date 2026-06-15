@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://he8mhrd0315"]
+
+[ext_resource type="Script" uid="uid://dghiqcttm2shm" path="res://scripts/walking_state.gd" id="1_2gaw3"]
+
+[node name="WalkingState" type="Node" unique_id=1727215916]
+script = ExtResource("1_2gaw3")
+metadata/_custom_type_script = "uid://co3sysdbat4jm"

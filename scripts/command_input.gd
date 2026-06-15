@@ -1,8 +1,8 @@
 class_name CommandInput extends Control
 
-@onready var edit = $EditMargin/EditRatio/CommandEdit
+@onready var edit = $EditMargin/CommandEdit
 @onready var log = $LogMargin/LogRatio/CommandLog
-@onready var line= $LineMargin/CommandLine
+@onready var line= $LineMargin/AspectRatioContainer/CommandLine
 @export var stage: Stage
 var last_word:= ""
 var current_word:=0
@@ -10,6 +10,11 @@ var sent:= {}
 signal orange
 signal execute
 
+func log_action_taken()-> bool:
+	for w in sent:
+		log.append_text(sent[w])
+	log.append_text("\n")
+	return true
 
 func selected_subject_player():
 	sent[current_word]= str("[color= blue] ", last_word, " [/color]") 
@@ -65,13 +70,20 @@ func _input(event: InputEvent) -> void:
 			line.clear()
 			for w in sent:
 				line.append_text(sent[w])
+		elif not edit.text and last_word != "":
+			edit.clear()
+			line.clear()
+			sent.erase(current_word)
+			current_word-= 1
+			for w in sent:
+				line.append_text(sent[w])
 		else:
 			edit.clear()
 			line.clear()
 			sent= {}
 			current_word= 0
 			last_word= ""
-		
+			stage.clear_selection()
 	if event.is_action_released("select"):
 		edit.clear()
 	if event.is_action_released("submit"):
@@ -80,21 +92,19 @@ func _input(event: InputEvent) -> void:
 		sent= {}
 		current_word= 0
 		last_word= ""
-		log.append_text("\n")
 	if event.is_action_pressed("submit"):
 		if edit.text:
 			last_word= edit.text
 			current_word+= 1
-			var valid = await orange.emit(last_word)
+			var valid = await stage.command_input_select(last_word.to_lower())
 			if !valid:
-				pass
-		execute.emit()
-		for w in sent:
-			log.append_text(sent[w])
+				stage.clear_selection()
+				return
+		stage.command_input_execute()
 	elif event.is_action_pressed("select"):
 		last_word= edit.text
 		current_word+= 1
-		orange.emit(last_word)
+		stage.command_input_select(last_word.to_lower())
 	else:
 		pass
 		
@@ -102,6 +112,7 @@ func _input(event: InputEvent) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	edit.grab_focus()
+	#edit.vis
 	pass # Replace with function body.
 
 

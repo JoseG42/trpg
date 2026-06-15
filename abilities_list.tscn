@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cpx3dkxirf61e"]
-
-[ext_resource type="Script" uid="uid://5gpxjcnwueml" path="res://abilities_list.gd" id="1_3pqrm"]
-
-[node name="AbilitiesList" type="VBoxContainer" unique_id=733165265]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_3pqrm")

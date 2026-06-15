@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dacl6ovmryr8r"]
+
+[ext_resource type="Texture2D" uid="uid://dhhcymsa5dbw" path="res://assets/line_border.png" id="1_65eu7"]
+[ext_resource type="Script" uid="uid://55bvkmwm4gp5" path="res://scripts/line_ratio.gd" id="1_dc7at"]
+
+[node name="LineRatio" type="AspectRatioContainer" unique_id=1831425314]
+custom_minimum_size = Vector2(40, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+ratio = 1.62
+stretch_mode = 0
+alignment_vertical = 2
+script = ExtResource("1_dc7at")
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Nine" type="NinePatchRect" parent="." unique_id=1049558300]
+layout_mode = 2
+texture = ExtResource("1_65eu7")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1345045667]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_right = 7
+
+[node name="Line" type="RichTextLabel" parent="Margin" unique_id=1328438389]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

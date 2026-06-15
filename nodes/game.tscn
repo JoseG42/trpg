@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://kgqh1ah8f7lu"]
+
+[ext_resource type="Script" uid="uid://udpglj2256gj" path="res://scripts/game.gd" id="1_80nbo"]
+
+[node name="Game" type="Area2D" unique_id=1481662425]
+script = ExtResource("1_80nbo")
+stage_path = "res://nodes/stages/test_stage.tscn"
+faith = Color(0.08235294, 0, 0, 1)
+description = "play the game"
+metadata/_custom_type_script = "uid://dxyg4jq4bnnxw"

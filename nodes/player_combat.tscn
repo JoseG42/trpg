@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://s7lmfyfkcp5b"]
+
+[ext_resource type="Script" uid="uid://diqltqh5r4ekl" path="res://scripts/player_combat.gd" id="1_w4fmj"]
+
+[node name="PlayerCombat" type="Node" unique_id=1584773128]
+script = ExtResource("1_w4fmj")
+metadata/_custom_type_script = "uid://q7gy0gt7vx12"

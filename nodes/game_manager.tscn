@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bbaxowjr2hr45"]
+
+[ext_resource type="Script" uid="uid://cwhqyxeqr6o5p" path="res://scripts/game_manager.gd" id="1_o2178"]
+[ext_resource type="PackedScene" uid="uid://dx5aqhrqhuebl" path="res://nodes/stages/title_screen.tscn" id="2_d5upp"]
+[ext_resource type="PackedScene" uid="uid://dacl6ovmryr8r" path="res://nodes/line_ratio.tscn" id="2_o2178"]
+[ext_resource type="PackedScene" uid="uid://s0wpb2c024jw" path="res://nodes/prompt_manager.tscn" id="3_hc161"]
+
+[node name="GameManager" type="Node" unique_id=1710986872]
+script = ExtResource("1_o2178")
+
+[node name="TitleScreen" parent="." unique_id=1901467838 instance=ExtResource("2_d5upp")]
+
+[node name="PromptManager" parent="." unique_id=849859669 instance=ExtResource("3_hc161")]
+visible = false
+
+[node name="Edit" type="LineEdit" parent="." unique_id=1537062958]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.25
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 41.333344
+grow_horizontal = 2
+grow_vertical = 0
+keep_editing_on_text_submit = true
+
+[node name="LineRatio" parent="." unique_id=1831425314 instance=ExtResource("2_o2178")]
+z_index = 1
+
+[node name="Log" type="RichTextLabel" parent="." unique_id=1896395748]
+z_index = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 222.0
+offset_bottom = -138.0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
+bbcode_enabled = true
+scroll_following = true
+vertical_alignment = 2
+
+[connection signal="queue_prompt" from="TitleScreen" to="PromptManager" method="_on_stage_queue_prompt"]
+[connection signal="idle" from="PromptManager" to="." method="_on_p_manager_idle"]
+[connection signal="p_ready" from="PromptManager" to="." method="_on_p_manager_p_ready"]
+[connection signal="text_changed" from="Edit" to="." method="_on_edit_text_changed"]

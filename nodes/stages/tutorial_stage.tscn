@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d11ihcn28pgtr"]
+
+[node name="TutorialStage" type="Node" unique_id=487325959]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1616042992]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "This is the tutorial"
+fit_content = true
+autowrap_mode = 0

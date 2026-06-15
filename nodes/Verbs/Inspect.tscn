@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dm4qb8o0r7sd3"]
+
+[ext_resource type="Script" uid="uid://co4ea5777dqhs" path="res://scripts/inspect.gd" id="1_7cmx1"]
+
+[node name="Inspect" type="RichTextLabel" unique_id=1504903250]
+script = ExtResource("1_7cmx1")
+metadata/_custom_type_script = "uid://biqmsnn7etwir"

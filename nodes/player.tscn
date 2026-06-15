@@ -2,13 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://dwwl6shg77gq8" path="res://assets/Soldier-Idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://u8olljp1imyb" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Script" uid="uid://dl8r2vwm2otcd" path="res://mass.gd" id="3_ejohg"]
-[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://name_tag.tscn" id="4_qbdof"]
-[ext_resource type="PackedScene" uid="uid://cpx3dkxirf61e" path="res://abilities_list.tscn" id="5_hg0js"]
+[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://nodes/name_tag.tscn" id="4_qbdof"]
+[ext_resource type="PackedScene" uid="uid://cpx3dkxirf61e" path="res://nodes/abilities_list.tscn" id="5_hg0js"]
 [ext_resource type="PackedScene" uid="uid://31f7y2pxpw63" path="res://nodes/Verbs/scream.tscn" id="6_4n5g4"]
 [ext_resource type="PackedScene" uid="uid://dw04cmbiamo1h" path="res://nodes/Verbs/spin.tscn" id="7_5m3aa"]
 [ext_resource type="PackedScene" uid="uid://bbdjh4rmgp43s" path="res://nodes/Verbs/verb.tscn" id="8_gggum"]
-[ext_resource type="PackedScene" uid="uid://cedvi5t1jhol8" path="res://slash.tscn" id="9_qbdof"]
+[ext_resource type="PackedScene" uid="uid://cedvi5t1jhol8" path="res://nodes/Verbs/slash.tscn" id="9_qbdof"]
+[ext_resource type="PackedScene" uid="uid://dm4qb8o0r7sd3" path="res://nodes/Verbs/Inspect.tscn" id="10_hg0js"]
+[ext_resource type="PackedScene" uid="uid://cr8045qjkx5jk" path="res://nodes/Verbs/play.tscn" id="11_4n5g4"]
+[ext_resource type="Script" uid="uid://dl8r2vwm2otcd" path="res://scripts/mass.gd" id="11_5m3aa"]
+[ext_resource type="PackedScene" uid="uid://nxp15yograxp" path="res://walk.tscn" id="11_gggum"]
+[ext_resource type="PackedScene" uid="uid://b1vnoq2nwpxxv" path="res://nodes/Verbs/save_and_quit.tscn" id="12_ea43s"]
+[ext_resource type="PackedScene" uid="uid://0b2egnur4r3f" path="res://nodes/Verbs/save.tscn" id="13_ajyqs"]
+[ext_resource type="PackedScene" uid="uid://jbh11ttf2mld" path="res://states/State.tscn" id="13_k5sjp"]
+[ext_resource type="PackedScene" uid="uid://he8mhrd0315" path="res://states/walking_state.tscn" id="14_ea43s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -60,18 +67,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bms3g"]
-size = Vector2(17, 18.8)
-
-[node name="Player" type="Area2D" unique_id=551660105 node_paths=PackedStringArray("ab_l", "mass", "nametag")]
+[node name="Player" type="Area2D" unique_id=551660105 node_paths=PackedStringArray("ab_l", "default_verb", "initial_state", "mass", "nametag")]
 script = ExtResource("1_onrkg")
 level = 10
+species = "human"
 dexterity = 9
 perception = 10
 intelligence = 7
 charisma = 6
 strength = 10
 ab_l = NodePath("AbilitiesList")
+default_verb = NodePath("AbilitiesList/Inspect")
+initial_state = NodePath("State")
 max_health = 100
 faith = Color(2.887845e-06, 0.84105843, 0.6706095, 1)
 description = "A common soldier"
@@ -82,15 +89,6 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1919633912]
 sprite_frames = SubResource("SpriteFrames_dw050")
-
-[node name="Mass" type="CollisionShape2D" parent="." unique_id=740181530 node_paths=PackedStringArray("noun")]
-position = Vector2(-1.5, -1.6000001)
-shape = SubResource("RectangleShape2D_bms3g")
-script = ExtResource("3_ejohg")
-weight = 100
-endurance = 8
-noun = NodePath("..")
-metadata/_custom_type_script = "uid://dl8r2vwm2otcd"
 
 [node name="NameTag" parent="." unique_id=2044002101 node_paths=PackedStringArray("noun") instance=ExtResource("4_qbdof")]
 noun = NodePath("..")
@@ -109,3 +107,29 @@ layout_mode = 2
 
 [node name="Slash" parent="AbilitiesList" unique_id=1171220841 groups=["Verbs"] instance=ExtResource("9_qbdof")]
 layout_mode = 2
+
+[node name="Inspect" parent="AbilitiesList" unique_id=1504903250 instance=ExtResource("10_hg0js")]
+layout_mode = 2
+
+[node name="Play" parent="AbilitiesList" unique_id=1947872347 instance=ExtResource("11_4n5g4")]
+layout_mode = 2
+
+[node name="Walk" parent="AbilitiesList" unique_id=2142692948 instance=ExtResource("11_gggum")]
+layout_mode = 2
+
+[node name="SaveAndQuit" parent="AbilitiesList" unique_id=1063140661 instance=ExtResource("12_ea43s")]
+layout_mode = 2
+
+[node name="Save" parent="AbilitiesList" unique_id=1775835482 instance=ExtResource("13_ajyqs")]
+layout_mode = 2
+
+[node name="Mass" type="CollisionShape2D" parent="." unique_id=673392793 node_paths=PackedStringArray("noun")]
+script = ExtResource("11_5m3aa")
+weight = 70
+endurance = 8
+noun = NodePath("..")
+metadata/_custom_type_script = "uid://dl8r2vwm2otcd"
+
+[node name="State" parent="." unique_id=291457834 instance=ExtResource("13_k5sjp")]
+
+[node name="WalkingState" parent="." unique_id=1727215916 instance=ExtResource("14_ea43s")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbdjh4rmgp43s"]
 
-[ext_resource type="Script" uid="uid://biqmsnn7etwir" path="res://verb.gd" id="1_j7fj6"]
+[ext_resource type="Script" uid="uid://biqmsnn7etwir" path="res://scripts/verb.gd" id="1_j7fj6"]
 
 [node name="Verb" type="RichTextLabel" unique_id=867970473 groups=["Verbs"]]
 offset_right = 40.0

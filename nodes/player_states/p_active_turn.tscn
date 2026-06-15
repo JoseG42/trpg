@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc44mdya0o888"]
 
-[ext_resource type="Script" uid="uid://crytfc3ewxc8j" path="res://nodes/player_states/p_active_turn.gd" id="1_teee4"]
+[ext_resource type="Script" uid="uid://crytfc3ewxc8j" path="res://scripts/p_active_turn.gd" id="1_teee4"]
 
 [node name="PActiveTurn" type="Node" unique_id=627271602]
 script = ExtResource("1_teee4")

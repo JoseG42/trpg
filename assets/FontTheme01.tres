@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bft4njvv7fnct"]
+
+[ext_resource type="FontFile" uid="uid://cw52x0xmcklf7" path="res://assets/ArchitectsDaughter32.tres" id="1_bpite"]
+
+[resource]
+default_font = ExtResource("1_bpite")
+default_font_size = 20

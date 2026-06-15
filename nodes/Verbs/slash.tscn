@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cedvi5t1jhol8"]
+
+[ext_resource type="Script" uid="uid://cna5snh8ycqim" path="res://scripts/slash.gd" id="1_bf50k"]
+
+[node name="Slash" type="RichTextLabel" unique_id=1171220841]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bf50k")
+priority = 1
+duration = 1
+level = 1
+faith = Color(0.7921569, 0.14509805, 0, 0.72156864)
+metadata/_custom_type_script = "uid://biqmsnn7etwir"

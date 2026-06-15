@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkgxecvjed2ee"]
+
+[ext_resource type="Script" uid="uid://bmjylnjitvvlf" path="res://scripts/state_machine.gd" id="1_rac8c"]
+
+[node name="NpcIdle" type="Node" unique_id=1519685463]
+script = ExtResource("1_rac8c")

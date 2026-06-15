@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://mdwvhli1wg2h"]
 
-[ext_resource type="Script" uid="uid://cwnnegqw6jmds" path="res://orc.gd" id="1_vumo0"]
-[ext_resource type="PackedScene" uid="uid://buv54ujfw54xo" path="res://mass.tscn" id="2_31h1d"]
+[ext_resource type="Script" uid="uid://cwnnegqw6jmds" path="res://scripts/orc.gd" id="1_vumo0"]
+[ext_resource type="PackedScene" uid="uid://buv54ujfw54xo" path="res://nodes/mass.tscn" id="2_31h1d"]
 [ext_resource type="Texture2D" uid="uid://cffklewm1p4sy" path="res://assets/Orc-Idle.png" id="2_dfwqp"]
-[ext_resource type="PackedScene" uid="uid://cpx3dkxirf61e" path="res://abilities_list.tscn" id="3_dfwqp"]
+[ext_resource type="PackedScene" uid="uid://cpx3dkxirf61e" path="res://nodes/abilities_list.tscn" id="3_dfwqp"]
 [ext_resource type="PackedScene" uid="uid://dw04cmbiamo1h" path="res://nodes/Verbs/spin.tscn" id="4_d22v1"]
-[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://name_tag.tscn" id="4_dfwqp"]
+[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://nodes/name_tag.tscn" id="4_dfwqp"]
+[ext_resource type="Script" uid="uid://bgh8q1vb4uop" path="res://scripts/name_tag.gd" id="5_n7b4n"]
 [ext_resource type="PackedScene" uid="uid://bbdjh4rmgp43s" path="res://nodes/Verbs/verb.tscn" id="5_wpvyt"]
 [ext_resource type="PackedScene" uid="uid://31f7y2pxpw63" path="res://nodes/Verbs/scream.tscn" id="8_d22v1"]
 [ext_resource type="PackedScene" uid="uid://jbh11ttf2mld" path="res://states/State.tscn" id="9_j3i5b"]
@@ -73,6 +74,7 @@ charisma = 6
 strength = 9
 ab_l = NodePath("AbilitiesList")
 initial_state = NodePath("State")
+species = "Orc"
 max_health = 80
 faith = Color(0.047058824, 0.3254902, 0.09019608, 1)
 description = "A young orc"
@@ -92,6 +94,7 @@ endurance = 7
 noun = NodePath("..")
 
 [node name="NameTag" parent="." unique_id=2044002101 node_paths=PackedStringArray("noun") instance=ExtResource("4_dfwqp")]
+script = ExtResource("5_n7b4n")
 noun = NodePath("..")
 
 [node name="AbilitiesList" parent="." unique_id=733165265 node_paths=PackedStringArray("subject") instance=ExtResource("3_dfwqp")]

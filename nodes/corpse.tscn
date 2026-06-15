@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://duyr5w3pyndxx"]
+
+[ext_resource type="Script" uid="uid://bcsr6u0bxx8sw" path="res://scripts/corpse.gd" id="1_rst2x"]
+[ext_resource type="PackedScene" uid="uid://buv54ujfw54xo" path="res://nodes/mass.tscn" id="2_sda0q"]
+[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://nodes/name_tag.tscn" id="3_dnttv"]
+
+[node name="Corpse" type="Area2D" unique_id=567410082 node_paths=PackedStringArray("mass", "nametag")]
+script = ExtResource("1_rst2x")
+mass = NodePath("Mass")
+nametag = NodePath("NameTag")
+metadata/_custom_type_script = "uid://b8ubm11tkmok4"
+
+[node name="Mass" parent="." unique_id=671160666 node_paths=PackedStringArray("noun") instance=ExtResource("2_sda0q")]
+noun = NodePath("..")
+
+[node name="NameTag" parent="." unique_id=2044002101 node_paths=PackedStringArray("noun") instance=ExtResource("3_dnttv")]
+noun = NodePath("..")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://0kpnwa7h5kky"]
+
+[ext_resource type="Script" uid="uid://do41y1nr80iw2" path="res://scripts/stage.gd" id="1_aees8"]
+[ext_resource type="PackedScene" uid="uid://be4tt0cpddd1y" path="res://nodes/player.tscn" id="3_rnkuw"]
+[ext_resource type="PackedScene" uid="uid://mdwvhli1wg2h" path="res://nodes/npc/orc.tscn" id="4_gx6sy"]
+[ext_resource type="PackedScene" uid="uid://dpb1fgtfsscim" path="res://nodes/overworld.tscn" id="5_vpggq"]
+[ext_resource type="PackedScene" uid="uid://s7lmfyfkcp5b" path="res://nodes/player_combat.tscn" id="6_1edn8"]
+
+[node name="Stage" type="Node" unique_id=1015093439 node_paths=PackedStringArray("player", "initial_state")]
+script = ExtResource("1_aees8")
+player = NodePath("Player")
+initial_state = NodePath("Overworld")
+
+[node name="Player" parent="." unique_id=551660105 instance=ExtResource("3_rnkuw")]
+position = Vector2(235, 78)
+
+[node name="Orc" parent="." unique_id=1312671094 groups=["npc"] instance=ExtResource("4_gx6sy")]
+position = Vector2(341, 88)
+
+[node name="Overworld" parent="." unique_id=1363404276 instance=ExtResource("5_vpggq")]
+
+[node name="PlayerCombat" parent="." unique_id=1584773128 instance=ExtResource("6_1edn8")]

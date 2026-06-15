@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cfkjmhyovk1ci"]
+
+[ext_resource type="Script" uid="uid://bc8gtw6mwnpcr" path="res://scripts/UiCont.gd" id="1_hhbce"]
+[ext_resource type="PackedScene" uid="uid://dacl6ovmryr8r" path="res://nodes/line_ratio.tscn" id="2_kge8f"]
+[ext_resource type="Texture2D" uid="uid://dhhcymsa5dbw" path="res://assets/line_border.png" id="2_tl8t7"]
+
+[node name="UiCont" type="Control" unique_id=1952877292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(291.5, 180)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hhbce")
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1518602486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GridContainer" unique_id=1049696724]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_tl8t7")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GridContainer/NinePatchRect" unique_id=463402965]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "The quick brown fox jumps over the lazy dog"
+fit_content = true
+
+[node name="LineRatio" parent="." unique_id=1831425314 instance=ExtResource("2_kge8f")]
+layout_mode = 1
+anchors_preset = 7
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 0.0

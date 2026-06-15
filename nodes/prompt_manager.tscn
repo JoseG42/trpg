@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://s0wpb2c024jw"]
+
+[ext_resource type="Script" uid="uid://cmh2fblro3w86" path="res://scripts/prompt_manager.gd" id="1_okpfq"]
+[ext_resource type="Texture2D" uid="uid://dhhcymsa5dbw" path="res://assets/line_border.png" id="2_mnm0n"]
+[ext_resource type="PackedScene" uid="uid://dqc8pl6rf6ggk" path="res://nodes/stopwatch.tscn" id="3_be1p3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mnm0n"]
+
+[sub_resource type="Animation" id="Animation_mnm0n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_be1p3"]
+resource_name = "idling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_33mn6"]
+_data = {
+&"RESET": SubResource("Animation_mnm0n"),
+&"idling": SubResource("Animation_be1p3")
+}
+
+[node name="PromptManager" type="AspectRatioContainer" unique_id=849859669 node_paths=PackedStringArray("s_watch")]
+z_index = 2
+custom_minimum_size = Vector2(80, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 1.62
+stretch_mode = 0
+script = ExtResource("1_okpfq")
+s_watch = NodePath("Stopwatch")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1415341283]
+modulate = Color(0, 0, 0, 0.40784314)
+layout_mode = 2
+texture = SubResource("CanvasTexture_mnm0n")
+
+[node name="PTimer" type="Timer" parent="." unique_id=421633928]
+wait_time = 0.5
+one_shot = true
+ignore_time_scale = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=481174004]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=2126080909]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MContainer1" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1194634155]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HBoxContainer/VBoxContainer/MContainer1" unique_id=297563459]
+layout_mode = 2
+size_flags_vertical = 8
+ratio = 1.618
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/MContainer1/AspectRatioContainer2" unique_id=918769413]
+layout_mode = 2
+
+[node name="TopLabel1" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MContainer1/AspectRatioContainer2/VBoxContainer" unique_id=348828949]
+layout_mode = 2
+bbcode_enabled = true
+text = "%Correct:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="TopLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MContainer1/AspectRatioContainer2/VBoxContainer" unique_id=467078801]
+layout_mode = 2
+bbcode_enabled = true
+text = "100%"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/MContainer1/AspectRatioContainer2" unique_id=1535113937]
+layout_mode = 2
+texture = ExtResource("2_mnm0n")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=975525541]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HBoxContainer/VBoxContainer/MContainer2" unique_id=2036770274]
+layout_mode = 2
+size_flags_vertical = 4
+ratio = 1.618
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/MContainer2/AspectRatioContainer2" unique_id=1560090245]
+layout_mode = 2
+
+[node name="MiddleLabel1" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MContainer2/AspectRatioContainer2/VBoxContainer" unique_id=573090854]
+layout_mode = 2
+bbcode_enabled = true
+text = "%Incorrect:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MiddleLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MContainer2/AspectRatioContainer2/VBoxContainer" unique_id=14947459]
+layout_mode = 2
+bbcode_enabled = true
+text = "0%"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/MContainer2/AspectRatioContainer2" unique_id=284020669]
+layout_mode = 2
+texture = ExtResource("2_mnm0n")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=1523157591]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HBoxContainer/VBoxContainer/MContainer3" unique_id=135577448]
+layout_mode = 2
+size_flags_vertical = 0
+ratio = 1.618
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/MContainer3/AspectRatioContainer2" unique_id=2037765874]
+layout_mode = 2
+
+[node name="BottomLabel1" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MContainer3/AspectRatioContainer2/VBoxContainer" unique_id=1628404760]
+layout_mode = 2
+bbcode_enabled = true
+text = "WPM:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="BottomLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/MContainer3/AspectRatioContainer2/VBoxContainer" unique_id=992926648]
+layout_mode = 2
+bbcode_enabled = true
+text = "120"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/VBoxContainer/MContainer3/AspectRatioContainer2" unique_id=2005390929]
+layout_mode = 2
+texture = ExtResource("2_mnm0n")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MidleMContainer" type="MarginContainer" parent="HBoxContainer" unique_id=2079341651]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MidleMContainer" unique_id=148402833]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 1.618
+stretch_mode = 0
+
+[node name="PNineRect" type="NinePatchRect" parent="HBoxContainer/MidleMContainer/AspectRatioContainer" unique_id=1943525605]
+layout_mode = 2
+texture = ExtResource("2_mnm0n")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CurrentPMargin" type="MarginContainer" parent="HBoxContainer/MidleMContainer/AspectRatioContainer/PNineRect" unique_id=147199117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="StandbyContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1620699324]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PManagerAnimation" type="AnimationPlayer" parent="." unique_id=1539840794]
+libraries/ = SubResource("AnimationLibrary_33mn6")
+
+[node name="Stopwatch" parent="." unique_id=1114897282 instance=ExtResource("3_be1p3")]
+
+[connection signal="timeout" from="PTimer" to="." method="_on_p_timer_timeout"]
+[connection signal="animation_finished" from="PManagerAnimation" to="." method="_on_p_manager_animation_finished"]

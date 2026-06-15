@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ctxwkolpy1unr"]
+
+[ext_resource type="Script" uid="uid://b8ubm11tkmok4" path="res://scripts/prop.gd" id="1_7ky6l"]
+[ext_resource type="PackedScene" uid="uid://buv54ujfw54xo" path="res://nodes/mass.tscn" id="2_bw8cs"]
+[ext_resource type="PackedScene" uid="uid://8xy2olvosvkt" path="res://nodes/name_tag.tscn" id="3_u6dcr"]
+
+[node name="Prop" type="Area2D" unique_id=1643547323 node_paths=PackedStringArray("mass", "nametag")]
+script = ExtResource("1_7ky6l")
+mass = NodePath("Mass")
+nametag = NodePath("NameTag")
+metadata/_custom_type_script = "uid://dxyg4jq4bnnxw"
+
+[node name="Mass" parent="." unique_id=671160666 node_paths=PackedStringArray("noun") instance=ExtResource("2_bw8cs")]
+noun = NodePath("..")
+
+[node name="NameTag" parent="." unique_id=2044002101 node_paths=PackedStringArray("noun") instance=ExtResource("3_u6dcr")]
+noun = NodePath("..")

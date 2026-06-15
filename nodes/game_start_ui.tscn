@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bdyij6mp6pa7k"]
+
+[ext_resource type="Script" uid="uid://dkj534c14ex2i" path="res://scripts/game_start_ui.gd" id="1_qhsik"]
+[ext_resource type="Texture2D" uid="uid://dhhcymsa5dbw" path="res://assets/line_border.png" id="2_1gmow"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhsik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gmow"]
+
+[node name="GameStartUi" type="Control" unique_id=1646571884]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhsik")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=239906533]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 11
+
+[node name="Panel2" type="Panel" parent="VBoxContainer" unique_id=2101265169]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qhsik")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer" unique_id=1376387451]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 1.62
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/AspectRatioContainer" unique_id=1994563293]
+layout_mode = 2
+texture = ExtResource("2_1gmow")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/AspectRatioContainer" unique_id=447223416]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "How to play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="VBoxContainer" unique_id=1778690676]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 1.62
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/AspectRatioContainer4" unique_id=1264344876]
+layout_mode = 2
+texture = ExtResource("2_1gmow")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/AspectRatioContainer4" unique_id=583847637]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="VBoxContainer" unique_id=27061374]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 1.62
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/AspectRatioContainer5" unique_id=1725205482]
+layout_mode = 2
+texture = ExtResource("2_1gmow")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/AspectRatioContainer5" unique_id=752817925]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Typing test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=1578807598]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1gmow")

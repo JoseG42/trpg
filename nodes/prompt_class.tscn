@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cxsu5w0frt77b"]
+
+[ext_resource type="Script" uid="uid://75gb23re15cq" path="res://scripts/prompt_class.gd" id="1_wgej2"]
+
+[node name="PromptClass" type="HFlowContainer" unique_id=537716360]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 1
+script = ExtResource("1_wgej2")
+metadata/_edit_group_ = true
