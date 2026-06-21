@@ -13,6 +13,8 @@ func act(target= subject):
 			#target.attacking(self)
 		return target.name+ " slashes furiously"
 	else:
+		if target.position- subject.position> range:
+			subject.destination= target.position
 		var dmg= dmg_calc(target)
 		target.mass.damaged(dmg)
 		return subject.name+ " slashed "+ target.name+ " dealing "+ str(dmg)+ " damage"

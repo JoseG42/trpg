@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d2u7s58uxjvm0"]
+
+[ext_resource type="Script" uid="uid://dbuknhk006wi5" path="res://scripts/combat_manager.gd" id="1_w6e1p"]
+[ext_resource type="Texture2D" uid="uid://bkbcd7bq2shkg" path="res://assets/icon.svg" id="2_mwe3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6e1p"]
+radius = 480.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5j1gc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mwe3q")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CombatManager" type="Area2D" unique_id=683842093]
+script = ExtResource("1_w6e1p")
+
+[node name="Combat area" type="CollisionShape2D" parent="." unique_id=1879230786]
+shape = SubResource("CircleShape2D_w6e1p")
+debug_color = Color(0, 0.5950001, 0.7, 0.1254902)
+
+[node name="ActiveTurnMarker" type="AnimatedSprite2D" parent="." unique_id=35600712]
+visible = false
+modulate = Color(0.07296587, 0.8591914, 0, 1)
+scale = Vector2(0.23141146, 0.23141146)
+sprite_frames = SubResource("SpriteFrames_5j1gc")
+offset = Vector2(0, -64)

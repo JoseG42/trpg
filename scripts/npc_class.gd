@@ -1,15 +1,16 @@
 class_name NPCClass extends Noun
 
-@export var level := int()
-@export var dexterity := int()
+@export var level : int
+@export var dexterity : int
 # Endurance belongs to the mass
-@export var perception := int()
-@export var intelligence := int()
-@export var charisma := int()
-@export var strength := int()
+@export var perception : int
+@export var intelligence : int
+@export var charisma : int
+@export var strength : int
 @export var ab_l : AbilitiesList
 @export var initial_state: State
 @export var species: String
+@export var speed: int
 var current_state: State
 var states_dict:= {}
 var in_combat:= false

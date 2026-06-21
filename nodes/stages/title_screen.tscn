@@ -464,6 +464,11 @@ texture = ExtResource("2_ig5kc")
 [sub_resource type="TileSet" id="TileSet_8vmu4"]
 sources/0 = SubResource("TileSetAtlasSource_013yr")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_h4kme"]
+vertices = PackedVector2Array(156, 296, 38.070313, 296, 39.921875, 39.960938, 156, 249, 568, 38.03125, 539, 168, 360, 229, 568, 168, 539, 229, 360, 249)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5, 6), PackedInt32Array(4, 7, 5), PackedInt32Array(5, 8, 6), PackedInt32Array(3, 6, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(578, 28, 578, 178, 549, 178, 549, 239, 370, 239, 370, 259, 166, 259, 166, 306, 28, 306, 30, 30)])
+
 [node name="TitleScreen" type="Node" unique_id=1901467838 node_paths=PackedStringArray("player")]
 script = ExtResource("1_jqemp")
 player = NodePath("Player")
@@ -577,6 +582,9 @@ fit_content = true
 script = ExtResource("7_yeacr")
 noun = NodePath("..")
 metadata/_custom_type_script = "uid://bgh8q1vb4uop"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=11788679]
+navigation_polygon = SubResource("NavigationPolygon_h4kme")
 
 [connection signal="play_game" from="Game" to="." method="_on_game_play_game"]
 [connection signal="play_game" from="TypingTest" to="." method="_on_typing_test_play_game"]

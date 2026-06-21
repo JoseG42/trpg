@@ -6,6 +6,6 @@ var act_points: int
 func enter():
 	act_points+= 2
 
-func update():
+func update(delta):
 	if act_points== 0:
 		pass

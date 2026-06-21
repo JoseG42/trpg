@@ -10,7 +10,6 @@ perception = 10
 intelligence = 10
 charisma = 10
 strength = 10
-states_array = [null]
 initial_state = NodePath("State")
 max_health = 72
 description = "Non player characters are a class."

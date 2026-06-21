@@ -1,8 +1,14 @@
 extends AspectRatioContainer
 
-@onready var midle_m_container: MarginContainer = $HBoxContainer/MidleMContainer
-@onready var p_nine_rect: NinePatchRect = $HBoxContainer/MidleMContainer/AspectRatioContainer/PNineRect
-@onready var current_p_margin: MarginContainer = $HBoxContainer/MidleMContainer/AspectRatioContainer/PNineRect/CurrentPMargin
+#@onready var midle_m_container: MarginContainer = $HBoxContainer/MidleMContainer
+#@onready var p_nine_rect: NinePatchRect = $HBoxContainer/MidleMContainer/AspectRatioContainer/PNineRect
+#@onready var current_p_margin: MarginContainer = $HBoxContainer/MidleMContainer/AspectRatioContainer/PNineRect/CurrentPMargin
+@onready var current_p_ratio_out: AspectRatioContainer = $HBoxContainer/CurrentPRatioOut
+@onready var p_nine_rect: NinePatchRect = $HBoxContainer/CurrentPRatioOut/MidleMContainer/CurrentPRatioIn/PNineRect
+@onready var current_p_margin: MarginContainer = $HBoxContainer/CurrentPRatioOut/MidleMContainer/CurrentPRatioIn/PNineRect/CurrentPMargin
+
+
+
 @onready var p_timer:= $PTimer
 @onready var animator:= $PManagerAnimation
 @onready var top_label_1: RichTextLabel = $HBoxContainer/VBoxContainer/MContainer1/AspectRatioContainer2/VBoxContainer/TopLabel1
@@ -18,6 +24,7 @@ var current_p: PromptClass
 var current_p_index:= 0
 var is_edit_focus:= true
 var wpm:= 0.0
+var font
 
 signal p_ready
 signal idle
@@ -34,6 +41,7 @@ func idling():
 func resting():
 	s_watch.reset()
 	current_p.queue_free()
+	current_p_ratio_out.size_flags_stretch_ratio= 0.1
 	visible= !visible
 	animator.play("RESET")
 	idle.emit()
@@ -111,6 +119,8 @@ func _on_stage_queue_prompt(p) -> void:
 	current_p_margin.add_child(p)
 	p.stand_by()
 	if ! current_p:
+		#font= p.get_theme_font("normal_font")
+		#font= p.get_font("normal_font")
 		current_p= p
 		p_dict[p_total]= current_p
 		current_p_index+= 1
@@ -179,12 +189,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if current_p:
-		if current_p_margin.size.y> p_nine_rect.size.y:
-			print("should expand")
-			midle_m_container.size_flags_stretch_ratio+= 0.1
-		elif current_p_margin.size.y< p_nine_rect.size.y:
-			print("should shrink")
-			midle_m_container.size_flags_stretch_ratio-= 0.1
+		if current_p_ratio_out.size_flags_stretch_ratio< 3.5:
+			if current_p_margin.size.y> p_nine_rect.size.y:
+				print("should expand")
+				current_p_ratio_out.size_flags_stretch_ratio+= 0.1
+			elif current_p_margin.size.y< p_nine_rect.size.y:
+				print("should shrink")
+				current_p_ratio_out.size_flags_stretch_ratio-= 0.1
+		elif current_p.get_theme_font_size("normal_font")> 12:
+			if current_p_margin.size.y> p_nine_rect.size.y:
+				print("font should shrink")
+				current_p.add_theme_font_size_override("normal_font", 1)
+			
 	if s_watch.paused:
 		return
 	else:

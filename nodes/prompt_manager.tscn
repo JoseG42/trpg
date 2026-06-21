@@ -201,21 +201,26 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="MidleMContainer" type="MarginContainer" parent="HBoxContainer" unique_id=2079341651]
+[node name="CurrentPRatioOut" type="AspectRatioContainer" parent="HBoxContainer" unique_id=2046104441]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+ratio = 1.618
+
+[node name="MidleMContainer" type="MarginContainer" parent="HBoxContainer/CurrentPRatioOut" unique_id=2079341651]
+layout_mode = 2
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MidleMContainer" unique_id=148402833]
+[node name="CurrentPRatioIn" type="AspectRatioContainer" parent="HBoxContainer/CurrentPRatioOut/MidleMContainer" unique_id=148402833]
 layout_mode = 2
 size_flags_horizontal = 3
 ratio = 1.618
 stretch_mode = 0
 
-[node name="PNineRect" type="NinePatchRect" parent="HBoxContainer/MidleMContainer/AspectRatioContainer" unique_id=1943525605]
+[node name="PNineRect" type="NinePatchRect" parent="HBoxContainer/CurrentPRatioOut/MidleMContainer/CurrentPRatioIn" unique_id=1943525605]
 layout_mode = 2
 texture = ExtResource("2_mnm0n")
 patch_margin_left = 10
@@ -223,7 +228,7 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="CurrentPMargin" type="MarginContainer" parent="HBoxContainer/MidleMContainer/AspectRatioContainer/PNineRect" unique_id=147199117]
+[node name="CurrentPMargin" type="MarginContainer" parent="HBoxContainer/CurrentPRatioOut/MidleMContainer/CurrentPRatioIn/PNineRect" unique_id=147199117]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

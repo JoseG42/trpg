@@ -5,9 +5,9 @@ func act(target= subject):
 		#ask for a destination, or direction
 		return subject.name+ " walks to "+ target.name
 	elif target is Noun:
-		subject.current_state.next.emit(subject.current_state, "WalkingState")
-		subject.destination= target.position
-		
+		#subject.current_state.next.emit(subject.current_state, "WalkingState")
+		#subject.destination= target.position
+		subject.navigation_agent_2d.target_position= target.position
 		#var goal= target.position
 		#while subject.position != goal:
 			#if goal.x > subject.position.x:

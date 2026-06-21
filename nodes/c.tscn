@@ -1,23 +1,6 @@
 [gd_scene format=3 uid="uid://b2h8x6bvak1qh"]
 
-[ext_resource type="Theme" uid="uid://bft4njvv7fnct" path="res://assets/FontTheme01.tres" id="1_1qx1m"]
 [ext_resource type="Script" uid="uid://ye8pwa468j1q" path="res://scripts/c.gd" id="1_xu1pm"]
-
-[sub_resource type="FontFile" id="FontFile_xu1pm"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
 
 [node name="C" type="RichTextLabel" unique_id=1533043039]
 clip_contents = false
@@ -27,8 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_stretch_ratio = 0.0
-theme = ExtResource("1_1qx1m")
-theme_override_fonts/normal_font = SubResource("FontFile_xu1pm")
 bbcode_enabled = true
 scroll_active = false
 autowrap_mode = 0

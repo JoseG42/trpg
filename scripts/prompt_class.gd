@@ -110,7 +110,9 @@ func _init(t: String) -> void:
 				new_w.count.connect(_on_w_count)
 				#print(new_w)
 	add_theme_constant_override("h_separation", -1)
-	add_theme_constant_override("v_separation", 0)
+	add_theme_constant_override("v_separation", -1)
+	alignment=FlowContainer.ALIGNMENT_CENTER
+	size_flags_vertical= Control.SIZE_SHRINK_CENTER
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
